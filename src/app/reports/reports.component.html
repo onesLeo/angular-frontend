@@ -1,0 +1,39 @@
+<div class="trip-form">
+  <form>
+    <div class="row align-items-center">
+      <div class="mb-5 mb-md-0 col">
+        <select name="" id="" class="custom-select form-control">
+          <option value="">Select Type</option>
+          <option value="">Transaction</option>
+          <option value="">Validation</option>
+        </select>
+      </div>
+      <div class="mb-3 mb-md-0 col">
+        <div class="form-control-wrap">
+          <input type="text" id="cf-4" class="form-control datepicker px-3" placeholder="yyyy-mm-dd"
+                 name="dp" [(ngModel)]="model" ngbDatepicker #d1="ngbDatepicker">
+          <span class="icon icon-date_range"></span>
+        </div>
+      </div>
+      <div>
+        <button class="btn btn-outline-secondary" id="cal1" (click)="d1.toggle()" type="button">
+          <i class="fa fa-calendar" aria-hidden="true"></i></button>
+      </div>
+      <div class="col">
+        <div class="form-control-wrap">
+          <input type="text" id="cf-5" class="form-control datepicker px-3" placeholder="yyyy-mm-dd"
+                 name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+
+          <span class="icon icon-date_range"></span>
+        </div>
+      </div>
+      <div>
+        <button class="btn btn-outline-secondary" id="cal2" (click)="d.toggle()" type="button">
+          <i class="fa fa-calendar" aria-hidden="true"></i></button>
+      </div>
+      <div class="mb-3 mb-md-0 col">
+        <input type="submit" value="Search Now" class="btn btn-primary btn-block py-3" (click)="fetchReportsData()">
+      </div>
+    </div>
+  </form>
+</div>
