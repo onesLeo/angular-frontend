@@ -10,6 +10,8 @@ import { ReportsComponent } from './reports/reports.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {DataTablesModule} from 'angular-datatables';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {DataTablesModule} from 'angular-datatables';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    DataTablesModule
+    DataTablesModule,
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

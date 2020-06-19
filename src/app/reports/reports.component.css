@@ -1,0 +1,36 @@
+.input-d {
+  border-radius: 7px;
+  padding: 40px;
+  background: #fff;
+  position: relative;
+  z-index: 3;
+  -webkit-box-shadow: 0 15px 30px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 30px 0px rgba(0, 0, 0, 0.1); }
+.input-d .form-control {
+  border-color: rgba(0, 0, 0, 0.2);
+  padding-left: 20px;
+  padding-right: 20px; }
+.input-d .form-control:active, .input-d .form-control:focus {
+  border-color: #000; }
+.input-d .form-control-wrap {
+  position: relative; }
+.input-d .icon {
+  position: absolute;
+  right: 10px;
+  color: #ccc;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
+#cal1{
+  margin-left: -45%;
+  border-color: orange;
+}
+
+#cal2{
+  margin-left: -45%;
+  border-color: orange
+}

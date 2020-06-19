@@ -1,4 +1,4 @@
-<div class="trip-form">
+<div class="input-d">
   <form>
     <div class="row align-items-center">
       <div class="mb-5 mb-md-0 col">
@@ -11,7 +11,7 @@
       <div class="mb-3 mb-md-0 col">
         <div class="form-control-wrap">
           <input type="text" id="cf-4" class="form-control datepicker px-3" placeholder="yyyy-mm-dd"
-                 name="dp" [(ngModel)]="model" ngbDatepicker #d1="ngbDatepicker">
+                 name="dp" [(ngModel)]="from" ngbDatepicker #d1="ngbDatepicker">
           <span class="icon icon-date_range"></span>
         </div>
       </div>
@@ -22,7 +22,7 @@
       <div class="col">
         <div class="form-control-wrap">
           <input type="text" id="cf-5" class="form-control datepicker px-3" placeholder="yyyy-mm-dd"
-                 name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                 name="dp" [(ngModel)]="to" ngbDatepicker #d="ngbDatepicker">
 
           <span class="icon icon-date_range"></span>
         </div>
@@ -36,4 +36,40 @@
       </div>
     </div>
   </form>
+  <div>
+    <br/>
+    <br/>
+    <h2>Reports Information!</h2>
+    <table class="table table-striped"  >
+      <thead class="thead-light">
+      <tr>
+        <th>
+          Client Name
+        </th>
+        <th>
+          Beneficiary Bank
+        </th>
+        <th>
+          Api Module
+        </th>
+        <th>
+          Amount
+        </th>
+        <th>
+          Status Transfer
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor=" let report of reportsRes">
+        <td>{{report.clientName}}</td>
+        <td>{{report.beneficiaryBank}}</td>
+        <td>{{report.apiModule}}</td>
+        <td>{{report.amountTransferred}}</td>
+        <td>{{report.statusTransfer}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
 </div>
