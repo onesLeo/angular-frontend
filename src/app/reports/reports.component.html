@@ -1,17 +1,18 @@
 <div class="input-d">
-  <form>
+  <form [formGroup]="searchFormInput">
     <div class="row align-items-center">
       <div class="mb-5 mb-md-0 col">
-        <select name="" id="" class="custom-select form-control">
+        <select name="" id="" formControlName="typeForm" #typeInput (change)="selectOfTypeOfTransactions(typeInput.value)"
+                class="custom-select form-control" required>
           <option value="">Select Type</option>
-          <option value="">Transaction</option>
-          <option value="">Validation</option>
+          <option value="Transaction">Transaction</option>
+          <option value="Validation">Validation</option>
         </select>
       </div>
       <div class="mb-3 mb-md-0 col">
         <div class="form-control-wrap">
-          <input type="text" id="cf-4" class="form-control datepicker px-3" placeholder="yyyy-mm-dd"
-                 name="dp" [(ngModel)]="from" ngbDatepicker #d1="ngbDatepicker">
+          <input type="text" formControlName="fromDateForm" id="cf-4" class="form-control datepicker px-3" placeholder="yyyy-mm-dd"
+                 name="dp" ngbDatepicker #d1="ngbDatepicker">
           <span class="icon icon-date_range"></span>
         </div>
       </div>
@@ -21,8 +22,8 @@
       </div>
       <div class="col">
         <div class="form-control-wrap">
-          <input type="text" id="cf-5" class="form-control datepicker px-3" placeholder="yyyy-mm-dd"
-                 name="dp" [(ngModel)]="to" ngbDatepicker #d="ngbDatepicker">
+          <input type="text" id="cf-5" formControlName="toDateForm" class="form-control datepicker px-3" placeholder="yyyy-mm-dd"
+                 name="dp" ngbDatepicker #d="ngbDatepicker">
 
           <span class="icon icon-date_range"></span>
         </div>
@@ -32,7 +33,28 @@
           <i class="fa fa-calendar" aria-hidden="true"></i></button>
       </div>
       <div class="mb-3 mb-md-0 col">
-        <input type="submit" value="Search Now" class="btn btn-primary btn-block py-3" (click)="fetchReportsData()">
+        <input type="submit" value="Search Now" class="btn btn-primary btn-block py-3" (click)="fetchReportsData()"
+        [disabled]="!searchFormInput.valid">
+      </div>
+    </div>
+    <div *ngIf="searchFormInput.get('typeForm').invalid && (searchFormInput.get('typeForm').dirty ||
+    searchFormInput.get('typeForm').touched)" class="alert alert-danger"
+    id="typeFormIdErr">
+        <div *ngIf="searchFormInput.get('typeForm').errors">
+            Type is Required!
+        </div>
+    </div>
+    <div *ngIf="searchFormInput.get('fromDateForm').invalid && (searchFormInput.get('fromDateForm').dirty ||
+    searchFormInput.get('fromDateForm').touched)" class="alert alert-danger"
+    id="fromDateFormErr">
+      <div *ngIf="searchFormInput.get('fromDateForm').errors">
+        From Date is Required!
+      </div>
+    </div>
+    <div *ngIf="searchFormInput.get('toDateForm').invalid && (searchFormInput.get('toDateForm').dirty ||
+    searchFormInput.get('toDateForm').touched)" class="alert alert-danger" id="toDateFormErr">
+      <div *ngIf="searchFormInput.get('toDateForm').errors">
+        Date to is Required!
       </div>
     </div>
   </form>
@@ -40,7 +62,7 @@
     <br/>
     <br/>
     <h2>Reports Information!</h2>
-    <table class="table table-striped"  >
+    <table class="table table-striped" *ngIf="isDataMoreThanZero; else showNoDataAvailable" datatable [dtOptions]="dtOptions" >
       <thead class="thead-light">
       <tr>
         <th>
@@ -70,6 +92,10 @@
       </tr>
       </tbody>
     </table>
+
+    <ng-template #showNoDataAvailable>
+      No Data Available...!
+    </ng-template>
 
   </div>
 </div>

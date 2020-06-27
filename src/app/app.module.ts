@@ -11,7 +11,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {DataTablesModule} from 'angular-datatables';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {A11yModule} from '@angular/cdk/a11y';
 
@@ -32,6 +32,7 @@ import {A11yModule} from '@angular/cdk/a11y';
     NgbModule,
     FormsModule,
     A11yModule,
+    ReactiveFormsModule,
     DataTablesModule
   ],
   providers: [],
