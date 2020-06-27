@@ -12,6 +12,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {DataTablesModule} from 'angular-datatables';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {A11yModule} from '@angular/cdk/a11y';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,14 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    DataTablesModule,
+    NgbModule,
     FormsModule,
-    NgbModule
+    A11yModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
